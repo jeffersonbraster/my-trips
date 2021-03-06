@@ -4,6 +4,8 @@ import { InfoOutline } from '@styled-icons/evaicons-outline/InfoOutline'
 import dynamic from 'next/dynamic'
 import { MapProps } from 'components/Map'
 
+import * as S from './styles'
+
 const Map = dynamic(() => import('components/Map'), { ssr: false })
 
 export default function HomeTemplate({ places }: MapProps) {
@@ -29,9 +31,11 @@ export default function HomeTemplate({ places }: MapProps) {
           site_name: 'My Trips'
         }}
       />
-      <LinkWrapper href="/about">
-        <InfoOutline size={32} aria-label="About" />
-      </LinkWrapper>
+      <S.About>
+        <LinkWrapper href="/about">
+          <InfoOutline size={32} aria-label="About" />
+        </LinkWrapper>
+      </S.About>
       <Map places={places} />
     </>
   )
